@@ -1,0 +1,32 @@
+  [
+     {
+        "title":"The main office of company.",
+        "propaddr":"Main Office",
+        "latitude":42.3141419577,
+        "longitude":-83.1221815483
+     },
+     {
+      "title":"The filial №1 of company.",
+      "propaddr":"Filial 1",
+      "latitude":42.42047954,
+      "longitude":-83.2797603
+   },
+     {
+      "title":"The filial №2 of company.",
+        "propaddr":"Filial 2",
+        "latitude":42.414240290,
+        "longitude":-83.078182008
+     },
+     {
+      "title":"The filial №3 of company.",
+      "propaddr":"Filial 3",
+      "latitude":42.3273841985,
+      "longitude":-83.1392925183
+   },
+   {
+      "title":"The filial №4 of company.",
+      "propaddr":"Filial 4",
+      "latitude":42.4441662755,
+      "longitude":-83.0210616226
+ }     
+  ]
