@@ -14,22 +14,34 @@ code {
     monospace;
 }
 
-.backgroundContent{
-  background: url(./data/background.jpg) ;
-  background-repeat: no-repeat;
-  background-size: cover;
+.backgroundContent {
+  animation: scroll 800s linear infinite;
+  background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) ), url("https://st3.depositphotos.com/5183619/14538/v/600/depositphotos_145387937-stock-illustration-city-map-abstract-seamless-pattern.jpg");
   background-attachment: fixed;
+
+}
+
+@keyframes scroll {
+   100%{
+    background-position:3000px -3000px;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .backgroundContent {
+    animation: scroll 200s linear infinite;
+  }
 }
 
 .header{
   text-align: justify;
   letter-spacing: 1px;
   padding: 2em 10%;
-  background: #2c3e50;
+  background: #bdb9b7;
   color: #fff;
   display: flex;
   margin-bottom: 3%;
-
+  box-shadow: 0 0 10px #000;
 }
 .navList{
   margin-bottom: 0;
@@ -39,7 +51,7 @@ code {
   margin-right: 10px;
   list-style-type: none;
   position: relative;
-	color: #fff;
+	color: #000;
 	cursor: pointer;
 	line-height: 1;
 	text-decoration: none;
@@ -51,7 +63,7 @@ code {
 	left: 0; 
 	width: 0;
 	height: 1px;
-	background-color: #fff;
+	background-color: #000;
 	content: "";
 	transition: width 0.3s ease-out;
 }
@@ -71,9 +83,10 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-background: rgb(255,237,208);
-background: linear-gradient(0deg, rgba(255,237,208,1) 0%, rgba(255,255,255,1) 45%, rgba(24,144,255,0.4630894594165791) 100%);
-border-radius: 15px;
+  background: #efebe9;
+  /* background: linear-gradient(0deg, rgba(204,203,203,1) 0%, rgba(226,225,225,1) 100%); */
+  border-radius: 15px;
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .JSONwrapper{
   padding-top: 3%;
@@ -87,6 +100,8 @@ border-radius: 15px;
   justify-content: center;
   border-radius: 15px;
   background:#fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
 }
 .content{
   margin: 0 auto;

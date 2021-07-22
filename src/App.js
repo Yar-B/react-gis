@@ -12,8 +12,8 @@ function App() {
     <div className = "header">
       <div className = "nav">
         <ul className = "navList">
-          <li className = "navItem"><a href = "/">Главная</a></li>
-          <li className = "navItem"><a href = "/JSONdata">JSON dataset</a></li>
+          <li className = "navItem"><a style = {{textDecoration:"none", color: "#000"}} href = "/">Главная</a></li>
+          <li className = "navItem"><a style = {{textDecoration:"none", color: "#000"}} href = "/JSONdata">JSON dataset</a></li>
         </ul>
       </div>
     </div>

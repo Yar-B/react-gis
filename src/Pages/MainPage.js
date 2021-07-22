@@ -242,7 +242,7 @@ function MainPage() {
                 <SearchSelect data = {parcels} onChange = {changeProperties} startPos = {startPos} selected = {selectedParcels} owner = {ownID}/>
             </div>
             <div>
-                <Button type="primary" onClick={() => getRoute(ref)} style={{ margin: '20px' }}>Построить маршрут</Button>
+                <Button type="primary" onClick={() => getRoute(ref)} style={{ margin: '20px'}}>Построить маршрут</Button>
                 <Button type="primary" danger disabled={false} onClick = {() => cleanMap()}>Очистить</Button>
             </div>
           </div>
