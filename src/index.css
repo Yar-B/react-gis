@@ -16,7 +16,7 @@ code {
 
 .backgroundContent {
   animation: scroll 800s linear infinite;
-  background: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) ), url("https://st3.depositphotos.com/5183619/14538/v/600/depositphotos_145387937-stock-illustration-city-map-abstract-seamless-pattern.jpg");
+  background: linear-gradient( rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) ), url("https://st3.depositphotos.com/5183619/14538/v/600/depositphotos_145387937-stock-illustration-city-map-abstract-seamless-pattern.jpg");
   background-attachment: fixed;
 
 }
@@ -141,7 +141,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
+  background: #000;
   margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
