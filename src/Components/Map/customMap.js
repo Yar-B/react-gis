@@ -22,6 +22,7 @@ function CustomMap (props){
               instanceRef={ref => props.setRef(ref)}
               width = "100%" height='300px'
             >
+              <Button/>
             <Button onClick = {props.showModalDiagramm} 
               options = {{selectOnClick: false}} 
               data = {{image: "http://s1.iconbird.com/ico/0912/fugue/w16h161349012159chart.png",
