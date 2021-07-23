@@ -8,7 +8,7 @@ function warningFunction() {
   
   return (
     <div className = "JSONwrapper" style ={{height: '80vh' }}>
-      <p> Нихуя ты долбаеб такой страницы нет</p>
+      <p>Ошибка 404: Такой страницы не существует!</p>
     </div>
     );
 }

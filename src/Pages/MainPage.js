@@ -7,6 +7,7 @@ import Selector from "../Components/Select/selector";
 import SearchSelect from "../Components/Select/SearchSelector";
 import Loader from "../Components/Loader/loader";
 import { Button, Table, Modal, message } from 'antd';
+import { SearchOutlined, CloseOutlined  } from '@ant-design/icons';
 
 
 
@@ -167,7 +168,7 @@ function MainPage() {
         }
         ))
         setPost(posts.map((item, index)=>{
-          if (index == 0){
+          if (index === 0){
             item.visible = true
           }
           else{
@@ -178,7 +179,7 @@ function MainPage() {
   }
   const routes = useRef(null);
   function getRoute (ref) {
-    if (ymaps && coordinates[1].length != 0) {
+    if (ymaps && coordinates[1].length !== 0) {
       const multiRoute = new ymaps.multiRouter.MultiRoute({
           // Описание опорных точек мультимаршрута.
           referencePoints: coordinates,
@@ -233,21 +234,25 @@ function MainPage() {
             // mapState = {mapState} 
           />
           <div className = 'content'>
-            <div>
-                <span>Точка отправки:</span>
-                &nbsp;
+            <div className = 'selectCont'>
+              <div className = "selectItem selectMargin">
+                <span>Точка отправки: </span>
                 <Selector data = {posts} onChange = {changePosts} startPos = {startPos} selected = {selectedPosts}/>
-                <span>Конечная точка:</span>
-                &nbsp;
+              </div>
+              <div className = "selectItem">
+                <span>Конечная точка: </span>
                 <SearchSelect data = {parcels} onChange = {changeProperties} startPos = {startPos} selected = {selectedParcels} owner = {ownID}/>
+              </div>
             </div>
-            <div>
-                <Button type="primary" onClick={() => getRoute(ref)} style={{ margin: '20px'}}>Построить маршрут</Button>
-                <Button type="primary" danger disabled={false} onClick = {() => cleanMap()}>Очистить</Button>
+            <div className = 'buttonCont'>
+                <Button className = "routeSearchBut" type="primary" onClick={() => getRoute(ref)} style={{ marginRight: '20px'}}>Построить маршрут</Button>
+                <Button className = "routeSearchButMob" type="primary" onClick={() => getRoute(ref)} icon={<SearchOutlined />}/>
+                <Button className = "routeDeleteBut" type="primary" danger disabled={false} onClick = {() => cleanMap()}>Очистить</Button>
+                <Button className = "routeDeleteButMob" type="primary" danger disabled={false} onClick = {() => cleanMap()} icon={<CloseOutlined  />}/>
             </div>
           </div>
           {/* <ParcelsTable data = {parcels} /> */}
-          <Table columns={columns} dataSource={parcels} scroll={{ y: 240 }} />
+          <Table columns={columns} dataSource={parcels} scroll={{ y: 240 }} pagination={{size: "small"}}/>
           <Modal 
             visible={isModalDiagrammVisible} 
             onOk={handleCancel} 

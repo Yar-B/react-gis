@@ -105,10 +105,73 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .content{
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content:space-around;
+}
+.selectCont{
+  display: flex;
+}
+.routeSearchButMob{
+  display: none;
+}
+.routeDeleteButMob{
+  display: none;
+}
+
+@media (max-width: 740px){
+  .selectCont{
+    flex-direction: column;
+    /* justify-content: space-between; */
+  }
+  .selectItem{
+    display: flex;
+    flex-direction: column;
+  }
+  .selectMargin{
+    margin-bottom: 10px;
+  }
+  .buttonCont{
+    display: flex;
+  }
+  .routeSearchBut{
+    display: none;
+  }
+  .routeDeleteBut{
+    display:none;
+  }
+  .routeSearchButMob{
+    display:block;
+    margin-right: 10px;
+  }
+  .routeDeleteButMob{
+    display:block;
+  }
+  .ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td{
+    padding: 7px 1px
+  }
+  .ant-table-thead > tr > th{
+    font-size: 10px;
+  }
+  .ant-table{
+    font-size: 9px;
+  }
+  .ant-pagination-item a{
+    padding: 0px 2px;
+  }
+}
+
+@media(max-width: 1050px){
+  .selectCont{
+    flex-direction: column;
+  }
+  .selectMargin{
+    margin-bottom: 10px;
+  }
+
 }
 .top{
   display: flex;
