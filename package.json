@@ -1,5 +1,6 @@
 {
   "name": "react-gis",
+  "homepage": "http://bryanskiy.site/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +32,6 @@
       "react-app/jest"
     ]
   },
-  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",

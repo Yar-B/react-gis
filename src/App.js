@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as  Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as  Router, Route, Switch, IndexRoute } from "react-router-dom";
 import MainPage from "./Pages/MainPage";
 import JSONdata from "./Pages/JSONdata";
 import warningFunction from "./Pages/404";
@@ -21,7 +21,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route exact path = "/" component = {MainPage} />
+          <Route exact path = "/" component = {MainPage}/>
           <Route exact path = "/JSONdata" component = {JSONdata} />
           <Route exact path = "" component = {warningFunction} />
         </Switch>

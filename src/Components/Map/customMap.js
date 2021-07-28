@@ -9,11 +9,12 @@ const mapState = {
     controls: []
 }
 
+
 function CustomMap (props){
 
     return(
       <>
-        <YMaps query={{apikey: '413dad6e-973a-4e11-8762-9dc7c6a6fb64'}}>
+        <YMaps query={{ ns: "ymaps", apikey: '413dad6e-973a-4e11-8762-9dc7c6a6fb64', load: "package.full"}}>
             <Map 
               modules={["multiRouter.MultiRoute"]}
               onLoad={ymaps => props.setYmaps(ymaps)}
@@ -22,11 +23,11 @@ function CustomMap (props){
               instanceRef={ref => props.setRef(ref)}
               width = "100%" height='300px'
             >
-              <Button/>
+            <Button onClick = {() => props.toggleStateHeatMap()} data = {{content: "HeatMap"}}/>
             <Button onClick = {props.showModalDiagramm} 
               options = {{selectOnClick: false}} 
               data = {{image: "http://s1.iconbird.com/ico/0912/fugue/w16h161349012159chart.png",
-                      title: "Диграмма распределения"}}
+                       title: "Диграмма распределения"}}
             />
               <SetPlacemarks_posts data={props.posts} />
               <SetPlacemarks data={props.parcels} />

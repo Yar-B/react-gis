@@ -35,6 +35,18 @@ const columns = [
   }
 ];
 
+const loadJS = (id, url, location, onLoad) => {
+  if (!document.getElementById(id)) {
+    const scriptTag = document.createElement("script");
+    location.appendChild(scriptTag);
+    scriptTag.src = url;
+    scriptTag.id = id;
+    if (onLoad) {
+      scriptTag.onload = onLoad;
+    }
+  }
+};
+
 
 // function FormatWord(word){
 //   return word.split("").join('.');
@@ -102,6 +114,7 @@ function MainPage() {
     )
   }
 
+  
   function changePosts(value) {
     removeRoute();
     ref.setCenter([42.3141419577, -83.1221815483]);
@@ -203,6 +216,7 @@ function MainPage() {
      ref.geoObjects.remove(routes.current);
       routes.current = multiRoute;
       ref.geoObjects.add(routes.current);
+      
     }
     else
     {
@@ -213,7 +227,71 @@ function MainPage() {
     ref.geoObjects.remove(routes.current)
   }
   
+  function initHeatMap (ymaps){
+    loadJS(
+      "Heatmap",
+      "https://yastatic.net/s3/mapsapi-jslibs/heatmap/0.0.1/heatmap.min.js",
+      document.head,
+      () => getHeatMap(ymaps)
+    );
+  };
+  const hm = useRef(null);
 
+  function getHeatMap(ymaps){
+    ymaps.ready(["Heatmap"]).then(function() {
+      var data = [];
+
+      for (var i = 0; i < parcel_data.length; i++) {
+        data.push([parcel_data[i].latitude, parcel_data[i].longitude])
+      };
+
+      var heatmap = new ymaps.Heatmap(data, {
+          radius: 15,
+          dissipating: false,
+          opacity: 0.8,
+          intensityOfMidpoint: 0.2,
+          gradient: {
+              0.1: 'rgba(128, 255, 0, 0.7)',
+              0.2: 'rgba(255, 255, 0, 0.8)',
+              0.7: 'rgba(234, 72, 58, 0.9)',
+              1.0: 'rgba(162, 36, 25, 1)'
+          }
+      });
+      hm.current = heatmap;
+      console.log(hm.current);
+      // ref.geoObjects.add(hm.current)
+      hm.current.setMap(ref);
+  });
+  }
+
+  function setHeatMap(){
+    if (hm.current){
+      hm.current.setMap(ref);
+    }
+    else{
+      initHeatMap(ymaps);
+    }
+  }
+
+  function destroyHeatMap(){
+    hm.current.destroy()
+  }
+
+  const hmIsShow = useRef(null);
+
+  function toggleStateHeatMap(){
+    if (hmIsShow.current){
+      destroyHeatMap();
+      console.log("del");
+      hmIsShow.current = false;
+    }
+    else{
+      setHeatMap();
+      console.log("set");
+      hmIsShow.current = true;
+
+    }
+  }
 
   return (
     <div className = "wrapper">
@@ -231,6 +309,7 @@ function MainPage() {
             refs = {ref}
             setRef = {setRef}
             setLoading = {setLoading}
+            toggleStateHeatMap = {toggleStateHeatMap}
             // mapState = {mapState} 
           />
           <div className = 'content'>
