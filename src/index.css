@@ -18,7 +18,7 @@ code {
   animation: scroll 800s linear infinite;
   background: linear-gradient( rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) ), url("https://st3.depositphotos.com/5183619/14538/v/600/depositphotos_145387937-stock-illustration-city-map-abstract-seamless-pattern.jpg");
   background-attachment: fixed;
-
+  min-height: 100%;
 }
 
 @keyframes scroll {
@@ -42,6 +42,10 @@ code {
   display: flex;
   margin-bottom: 3%;
   box-shadow: 0 0 10px #000;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
 }
 .navList{
   margin-bottom: 0;
@@ -78,7 +82,6 @@ code {
   padding-left: 3%;
   padding-right: 3%;
   margin: 0 10%;
-  margin-bottom: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +96,6 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   padding-left: 3%;
   padding-right: 3%;
   margin: 0 10%;
-  margin-bottom: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,6 +104,9 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   background:#fff;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
+}
+.paddingBottom{
+  padding-bottom: 3%;
 }
 .content{
   margin: 0 auto;
@@ -137,12 +142,13 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
     justify-content: space-between;
   }
   .content{
-    flex-direction: column;
+    display: block;
   }
 }
 
 @media (max-width: 500px){
   .content{
+    display: flex;
     flex-direction: row;
   }
   .selectCont{

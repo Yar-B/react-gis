@@ -18,7 +18,7 @@ function App() {
         </ul>
       </div>
     </div>
-    <div>
+    <div className = "paddingBottom">
       <Router>
         <Switch>
           <Route exact path = "/" component = {MainPage}/>
